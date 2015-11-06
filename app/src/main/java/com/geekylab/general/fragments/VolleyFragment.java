@@ -25,6 +25,8 @@ public class VolleyFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        txtDescription.setText("Hello Volley!!!");
+        txtGuide.setText("Hello Volley!!!");
+        txtDescription.setVisibility(View.GONE);
+        btnExample.setVisibility(View.GONE);
     }
 }

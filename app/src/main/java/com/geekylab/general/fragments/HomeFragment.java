@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.geekylab.general.R;
 
 
+
 public class HomeFragment extends BaseFragment {
 	
 	public HomeFragment(){}
@@ -25,6 +26,9 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        txtDescription.setText("Hello world!!!");
+        txtGuide.setText("Hello world!!!");
+        txtDescription.setVisibility(View.GONE);
+        btnExample.setVisibility(View.GONE);
     }
+
 }
