@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">General</string>
+
+    <!-- Nav Drawer -->
+    <string-array name="nav_drawer_items">
+        <item >Home</item>
+        <item >Event Bus</item>
+        <item >Volley</item>
+    </string-array>
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+    </array>
+    <string name="image_desc">image</string>
+</resources>
