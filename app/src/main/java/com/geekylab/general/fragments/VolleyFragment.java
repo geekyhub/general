@@ -7,6 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.geekylab.general.R;
+import com.geekylab.general.network.api.RequestManager;
+import com.geekylab.general.network.events.BaseEvent;
+import com.geekylab.general.network.events.EventManager;
+import com.geekylab.general.network.events.GetUserEvent;
+
+import java.util.HashMap;
 
 
 public class VolleyFragment extends BaseFragment {
@@ -26,7 +32,23 @@ public class VolleyFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         txtGuide.setText("Hello Volley!!!");
-        txtDescription.setVisibility(View.GONE);
-        btnExample.setVisibility(View.GONE);
+        txtDescription.setText("");
+
+        btnExample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("test", "testing");
+                txtDescription.setText("request in process....");
+                RequestManager.getInstance(getActivity()).makeRequest(new GetUserEvent(getActivity(), params));
+            }
+        });
+    }
+
+    public void onEvent(BaseEvent event){
+        if(event instanceof GetUserEvent){
+            txtDescription.setText("my response: "+event.response);
+        }
+
     }
 }

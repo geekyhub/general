@@ -12,6 +12,7 @@ import com.geekylab.general.R;
 import com.geekylab.general.network.events.BaseEvent;
 import com.geekylab.general.network.events.EventManager;
 
+import java.util.HashMap;
 
 
 public class EventBusFragment extends BaseFragment {
@@ -34,11 +35,16 @@ public class EventBusFragment extends BaseFragment {
         String desc = "<h1>Event Bus</h1> 1. compile 'de.greenrobot:eventbus:2.4.0'<br> 2. Create EventManager.java to handle all the events 3. Create as many `event object` as you want under /network/events <br> 4. Register/unregister in the fragment/activity onStart and onStop respectively <br> 5. override onEvent() method for callback <br> 6. Push content from somewhere else. In this example we push from current fragment, but we could also push from some background task";
         txtGuide.setText(Html.fromHtml(desc));
         txtDescription.setText("This button has been clicked 0 times");
+
+
+
         btnExample.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 counter++;
-                BaseEvent example = new BaseEvent(counter);
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("x", counter+"");
+                BaseEvent example = new BaseEvent(getActivity(), params, null);
                 EventManager.getBus().post(example);
             }
         });
@@ -46,7 +52,7 @@ public class EventBusFragment extends BaseFragment {
 
 
     public void onEvent(BaseEvent event){
-        txtDescription.setText("This button has been clicked "+ event.getData() + " times");
+        txtDescription.setText("This button has been clicked "+ event.params.get("x") + " times");
     }
 
 }

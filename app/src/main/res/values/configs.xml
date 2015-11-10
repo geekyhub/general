@@ -1,0 +1,4 @@
+<resources>
+    <string name="api_url">http://geekrlabs.com/</string>
+    <string name="api_GET_USER">api.php</string>
+</resources>
