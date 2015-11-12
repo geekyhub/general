@@ -17,8 +17,8 @@ import org.json.JSONObject;
  */
 public class RequestManager {
     private static final String TAG = RequestManager.class.getSimpleName();
-    private static RequestManager mInstance;
-    private static Context mContext;
+    private static RequestManager instance;
+    private Context mContext;
     private RequestQueue mRequestQueue;
 
     private RequestManager(Context context) {
@@ -27,10 +27,10 @@ public class RequestManager {
     }
 
     public static synchronized RequestManager getInstance(Context context) {
-        if (mInstance == null) {
-            mInstance = new RequestManager(context.getApplicationContext());
+        if (instance == null) {
+            instance = new RequestManager(context.getApplicationContext());
         }
-        return mInstance;
+        return instance;
     }
 
     private RequestQueue getRequestQueue() {

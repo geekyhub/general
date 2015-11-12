@@ -3,6 +3,8 @@ package com.geekylab.general;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +17,7 @@ import android.widget.ListView;
 import com.geekylab.general.adapters.NavDrawerAdapter;
 import com.geekylab.general.fragments.EventBusFragment;
 import com.geekylab.general.fragments.HomeFragment;
+import com.geekylab.general.fragments.UtilFragment;
 import com.geekylab.general.fragments.VolleyFragment;
 import com.geekylab.general.models.NavDrawerItem;
 
@@ -103,7 +106,7 @@ public class MainActivity extends ActionBarActivity {
      * */
     private void displayView(int position) {
         // update the main content by replacing fragments
-        android.app.Fragment fragment = null;
+        Fragment fragment = null;
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
@@ -114,12 +117,15 @@ public class MainActivity extends ActionBarActivity {
             case 2:
                 fragment = new VolleyFragment();
                 break;
+            case 3:
+                fragment = new UtilFragment();
+                break;
             default:
                 break;
         }
 
         if (fragment != null) {
-            android.app.FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager =  this.getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.frame_container, fragment).commit();
 
@@ -161,9 +167,9 @@ public class MainActivity extends ActionBarActivity {
 
     public ArrayList<NavDrawerItem> getSideMenu(){
         ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<>();
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(0, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(0, -1)));
+        for (int i=0;i<navMenuTitles.length;i++){
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(0, -1)));
+        }
         return navDrawerItems;
     }
 
