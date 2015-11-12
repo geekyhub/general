@@ -1,6 +1,6 @@
 package com.geekylab.general.fragments;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;

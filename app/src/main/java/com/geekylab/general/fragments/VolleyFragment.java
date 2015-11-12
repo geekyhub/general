@@ -2,6 +2,7 @@ package com.geekylab.general.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class VolleyFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        txtGuide.setText("Hello Volley!!!");
+        txtGuide.setText(Html.fromHtml("Hello Volley!!!<br><br>1. import volley module <br>2. compile project(':volley') <br>3. copy CustomRequest.java and RequestManager.java from /network <br>4. request with `RequestManager.getInstance(this).makeRequest()` <br>5. received on your eventbus callback `onEvent(BaseEvent event)`"));
         txtDescription.setText("");
 
         btnExample.setOnClickListener(new View.OnClickListener() {
