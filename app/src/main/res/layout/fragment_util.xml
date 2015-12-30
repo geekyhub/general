@@ -65,6 +65,34 @@
                 android:padding="10dip" android:gravity="center"/>
 
         </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content" android:background="@color/black">
+
+            <TextView
+                android:id="@+id/txtUtil3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:text="Service"
+                />
+
+            <Button
+                android:id="@+id/btnUtil3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                android:text="Click Me"
+                android:padding="10dip" android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtDescription3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_margin="20dip" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

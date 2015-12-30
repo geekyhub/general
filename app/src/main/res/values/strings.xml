@@ -6,9 +6,12 @@
         <item >Home</item>
         <item >Event Bus</item>
         <item >Volley</item>
+        <item >Utils</item>
     </string-array>
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
     </array>
     <string name="image_desc">image</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 </resources>

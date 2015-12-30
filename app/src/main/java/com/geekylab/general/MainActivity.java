@@ -1,10 +1,15 @@
 package com.geekylab.general;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,6 +25,8 @@ import com.geekylab.general.fragments.HomeFragment;
 import com.geekylab.general.fragments.UtilFragment;
 import com.geekylab.general.fragments.VolleyFragment;
 import com.geekylab.general.models.NavDrawerItem;
+import com.geekylab.general.network.TimerService;
+import com.geekylab.general.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -32,6 +39,13 @@ public class MainActivity extends ActionBarActivity {
     // nav drawer title
     private CharSequence mDrawerTitle;
     private NavDrawerAdapter adapter;
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String minutes = intent.getStringExtra(TimerService.MINUTES.class.getName());
+            Utils.showToast(MainActivity.this, "my minutes: "+minutes);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +90,8 @@ public class MainActivity extends ActionBarActivity {
             // on first time display view for first nav item
             displayView(0);
         }
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+                mMessageReceiver, new IntentFilter(TimerService.class.getName()));
     }
 
     /**

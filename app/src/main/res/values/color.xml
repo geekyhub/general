@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- original color -->
+    <color name="grey">#949494</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- list -->
     <color name="list_item_title">#fff</color>
     <color name="list_background">#303030</color>
     <color name="list_background_pressed">#992416</color>
     <color name="list_divider">#272727</color>
-    <color name="grey">#949494</color>
+
+    <!-- dialog -->
+    <color name="dialog_button_highlight">@color/item_highlight</color>
+
+
+    <color name="grey_middlelight">#cccccc</color>
+    <color name="grey_light">#b7b7b7</color>
+    <color name="black_default">@android:color/black</color>
+    <color name="menu_header">#000000</color>
+    <color name="grey_middle">#666666</color>
+
+    <color name="item_highlight">#ecedee</color>
+    <color name="black">#343434</color>
+
 </resources>
